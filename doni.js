@@ -18,7 +18,7 @@ function handlertag() {
         lazyscript.onload = addAjax;
         lazyscript.onreadystatechange = addAjax;
         lazyscript.type = "text/javascript";
-        lazyscript.src = "https://cdn.jsdelivr.net/gh/ashishm1/infyload@main/ajaxinate-symmetry.js";
+        lazyscript.src = "https://cdn.jsdelivr.net/gh/ashishm1/infyload@main/ajaxinate-doni.js";
     }
     catch(err){
         console.log(err);
@@ -28,28 +28,22 @@ function handlertag() {
 function addAjax(){
 
     var orientation;
-    
-    if($('.product-list').length > 0) {
-        var prodgrid = $('.product-list')[0]
-        prodgrid.setAttribute("id", "LazyLoader-Loop");
-        orientation = '.product-list';
-        }
-    else if($('.cf.collection-listing-stream').length > 0) {
-        var prodgrid = $('.cf.collection-listing-stream')[0]
-        prodgrid.setAttribute("id", "LazyLoader-Loop");
-        orientation = '.cf.collection-listing-stream'
+    //var productgrid = $('.grid-uniform.grid--spacer')
+    //div#CollectionSection.box.wrapper.grid-uniform.grid--spacer
+
+    var productgrid = $('div.product-collection-grid').find('.row');
+    if(productgrid.length > 0) {
+        var pgrid = productgrid[0]
+        pgrid.setAttribute("id", "LazyLoader-Loop");
+        orientation = 'div.product-collection-grid';
         }
     
-    
-    
-    ll = $('div.container.pagination-row').length;
-    if (ll > 0) {
-        tt = $('div.container.pagination-row')[0]; tt.setAttribute("id", "LazyLoader-Pagination")
+    ll = $('.shop-bottom');
+    if (ll.length > 0) {
+        pagegrid = ll[0]
+        pagegrid.setAttribute("id", "LazyLoader-Pagination")
         } 
         
-    //Remove Left arrow
-    //document.querySelectorAll('ul.pagination')[0].querySelectorAll('li')[1].innerText = "";
-    //document.querySelectorAll('ul.pagination')[0].querySelectorAll('li')[0].remove();
     
     $('body').append(`<script>var endlessScroll = new Ajaxinate({container: "#LazyLoader-Loop", pagination: "#LazyLoader-Pagination", orientation: "${orientation}"});document.addEventListener("DOMContentLoaded", function() { var endlessScroll = new Ajaxinate({container: "#LazyLoader-Loop", pagination: "#LazyLoader-Pagination", orientation: "${orientation}"});});</script>`)
 

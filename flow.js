@@ -18,7 +18,7 @@ function handlertag() {
         lazyscript.onload = addAjax;
         lazyscript.onreadystatechange = addAjax;
         lazyscript.type = "text/javascript";
-        lazyscript.src = "https://cdn.jsdelivr.net/gh/ashishm1/infyload@main/ajaxinate-symmetry.js";
+        lazyscript.src = "https://cdn.jsdelivr.net/gh/ashishm1/infyload@main/ajaxinate-flow.js";
     }
     catch(err){
         console.log(err);
@@ -27,29 +27,19 @@ function handlertag() {
 
 function addAjax(){
 
-    var orientation;
-    
-    if($('.product-list').length > 0) {
-        var prodgrid = $('.product-list')[0]
-        prodgrid.setAttribute("id", "LazyLoader-Loop");
-        orientation = '.product-list';
-        }
-    else if($('.cf.collection-listing-stream').length > 0) {
-        var prodgrid = $('.cf.collection-listing-stream')[0]
-        prodgrid.setAttribute("id", "LazyLoader-Loop");
-        orientation = '.cf.collection-listing-stream'
+    var productgrid = $('.collection-main-body-inner')
+    if(productgrid.length > 0) {
+        var pgrid = productgrid[0]
+        pgrid.setAttribute("id", "LazyLoader-Loop");
+        var orientation = '.collection-main-body-inner';
         }
     
-    
-    
-    ll = $('div.container.pagination-row').length;
-    if (ll > 0) {
-        tt = $('div.container.pagination-row')[0]; tt.setAttribute("id", "LazyLoader-Pagination")
+    ll = $('div.pagination');
+    if (ll.length > 0) {
+        pagegrid = ll[0]
+        pagegrid.setAttribute("id", "LazyLoader-Pagination")
         } 
         
-    //Remove Left arrow
-    //document.querySelectorAll('ul.pagination')[0].querySelectorAll('li')[1].innerText = "";
-    //document.querySelectorAll('ul.pagination')[0].querySelectorAll('li')[0].remove();
     
     $('body').append(`<script>var endlessScroll = new Ajaxinate({container: "#LazyLoader-Loop", pagination: "#LazyLoader-Pagination", orientation: "${orientation}"});document.addEventListener("DOMContentLoaded", function() { var endlessScroll = new Ajaxinate({container: "#LazyLoader-Loop", pagination: "#LazyLoader-Pagination", orientation: "${orientation}"});});</script>`)
 
