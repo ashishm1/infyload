@@ -4,14 +4,15 @@
             var newContainer = this.request.responseXML.querySelectorAll(this.settings.orientation)[0];
             var newPagination = this.request.responseXML.querySelectorAll('ul.pagination')[0]; 
 
-
             var plength = newContainer.children.length;
             var productElements = newContainer.querySelectorAll('.product-card-figure');
             for (var i = 0; i < plength; i++) {
                 var fel = productElements[i];
                 fel.querySelector('noscript').remove();
-                fel.querySelector('img').removeAttribute("srcset");
+                fel.querySelectorAll('img')[0].removeAttribute("srcset");
+				fel.querySelectorAll('img')[1].removeAttribute("srcset");
             }
+
 
             this.containerElement.insertAdjacentHTML('beforeend', newContainer.innerHTML); 
             var cont = document.getElementsByClassName('product-list');
@@ -21,6 +22,7 @@
             } 
             else { 
                 document.querySelector('link[rel="next"]').remove(); 
+                /*document.querySelectorAll('#LazyLoader-Pagination')[0].rmove();*/
             } 
             this.paginationElement.innerHTML = newPagination.innerHTML; 
             if (this.settings.callback && typeof this.settings.callback === 'function') { 
