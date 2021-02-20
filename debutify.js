@@ -38,9 +38,9 @@ function addAjax(){
         orientation = '#CollectionSection';
         }
     
-    ll = $('div.pagination span.next').length;
+    ll = $('div.pagination').length;
     if (ll > 0) {
-        tt = $('div.pagination span.next')[0]; tt.setAttribute("id", "LazyLoader-Pagination")
+        tt = $('div.pagination')[0]; tt.setAttribute("id", "LazyLoader-Pagination")
         } 
         
     //Remove Left arrow
