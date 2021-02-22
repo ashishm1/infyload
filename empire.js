@@ -29,22 +29,22 @@ function addAjax(){
 
     var orientation;
     
-    if($('div.productgrid--items').length > 0) {
-        var prodgrid = $('div.productgrid--items')[0]
+    if($('ul.productgrid--items').length > 0) {
+        var prodgrid = $('ul.productgrid--items')[0]
         prodgrid.setAttribute("id", "LazyLoader-Loop");
-        orientation = 'div.productgrid--items';
+        orientation = 'ul.productgrid--items';
         }
     
-    ll = $('div.pagination--container').length;
+    ll = $('nav.pagination--container').length;
     if (ll > 0) {
-        tt = $('div.pagination--container')[0]; tt.setAttribute("id", "LazyLoader-Pagination")
+        tt = $('nav.pagination--container')[0]; tt.setAttribute("id", "LazyLoader-Pagination")
         } 
         
     //Remove Left arrow
     //document.querySelectorAll('div.pagination--container')[0].querySelectorAll('li')[1].innerText = "";
     //document.querySelectorAll('div.pagination--container')[0].querySelectorAll('li')[0].remove();
     
-    $('main').append(`<script>var endlessScroll = new Ajaxinate({container: "#LazyLoader-Loop", pagination: "#LazyLoader-Pagination", orientation: "${orientation}"});document.addEventListener("DOMContentLoaded", function() { var endlessScroll = new Ajaxinate({container: "#LazyLoader-Loop", pagination: "#LazyLoader-Pagination", orientation: "${orientation}"});});</script>`)
+    $('body').append(`<script>var endlessScroll = new Ajaxinate({container: "#LazyLoader-Loop", pagination: "#LazyLoader-Pagination", orientation: "${orientation}"});document.addEventListener("DOMContentLoaded", function() { var endlessScroll = new Ajaxinate({container: "#LazyLoader-Loop", pagination: "#LazyLoader-Pagination", orientation: "${orientation}"});});</script>`)
 
 
 }
