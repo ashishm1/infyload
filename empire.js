@@ -38,6 +38,8 @@ function addAjax(){
     ll = $('nav.pagination--container').length;
     if (ll > 0) {
         tt = $('nav.pagination--container')[0]; tt.setAttribute("id", "LazyLoader-Pagination")
+        tt.innerHTML = `<div class = "loading-div"><p>Loading</p></div>`;
+        tt.style = `text-align: center`;
         } 
        
     
