@@ -58,6 +58,7 @@ var Ajaxinate = function ajaxinateConstructor(config) {
                 } 
                 else { 
                     document.querySelector('link[rel="next"]').remove(); 
+                    document.querySelector('.loading-div').remove();
                 }  
              if (this.settings.callback && typeof this.settings.callback === 'function') { this.settings.callback(this.request.responseXML); }
             this.initialize();
