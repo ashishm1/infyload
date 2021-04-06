@@ -18,7 +18,7 @@ function handlertag() {
         lazyscript.onload = addAjax;
         lazyscript.onreadystatechange = addAjax;
         lazyscript.type = "text/javascript";
-        lazyscript.src = "https://cdn.jsdelivr.net/gh/ashishm1/infyload@main/ajaxinate-doni.js";
+        lazyscript.src = "https://infy-scroller.digimaze.io/ajaxinate-doni.js";
     }
     catch(err){
         console.log(err);
